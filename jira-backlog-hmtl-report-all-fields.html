@@ -1,0 +1,1384 @@
+<html
+        xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+<title>Jira</title>
+<style type="text/css">
+table {
+    mso-displayed-decimal-separator:"\.";
+    mso-displayed-thousand-separator:"\,";
+}
+body
+{
+    margin: 0px;
+    font-size: 12px;
+    font-family: Arial, sans-serif;
+    color:black;
+}
+
+</style>
+<META HTTP-EQUIV="Content-Type" Content="application/vnd.ms-excel; charset=UTF-8">
+<!-- JRA-7598 - ensure fields (e.g. description) occupy only one cell - even fields containing newlines. -->
+<!--
+Vertical align all cells to the top, in order to align all issue rows of issuetable to the top,
+since Excel does not use or save the css files it is hardcoded here.
+-->
+<style>
+@page
+{
+mso-page-orientation:landscape;
+margin:.25in .25in .5in .25in;
+mso-header-margin:.5in;
+mso-footer-margin:.25in;
+mso-footer-data:"&R&P of &N";
+mso-horizontal-page-align:center;
+mso-vertical-page-align:center;
+}
+
+td.issuekey,
+td.issuetype,
+td.status {
+    mso-style-parent: "";
+    mso-number-format: \@;
+    text-align: left;
+}
+br
+{
+    mso-data-placement:same-cell;
+}
+
+td
+{
+    vertical-align: top;
+}
+</style>
+
+<!--[if gte mso 9]><xml>
+<x:ExcelWorkbook>
+<x:ExcelWorksheets>
+<x:ExcelWorksheet>
+<x:Name>general_report</x:Name>
+<x:WorksheetOptions>
+<x:Print>
+<x:ValidPrinterInfo/>
+</x:Print>
+</x:WorksheetOptions>
+</x:ExcelWorksheet>
+</x:ExcelWorksheets>
+</x:ExcelWorkbook>
+</xml><![endif]-->
+</head>
+<body>
+
+<table border="1">
+    <tr bgcolor="#205081" height="30">
+        <td colspan="45">
+            <img src="https://erickjcintron.atlassian.net/images/icon-jira-family-logo.png" width="57" height="30" border="0" alt="Jira">
+        </td>
+    </tr>
+    <tr>
+        <td colspan="45">
+            <a href="https://erickjcintron.atlassian.net/issues/?jql=created+%3E%3D+-30d+order+by+created+DESC">Jira</a>
+        </td>
+    </tr>
+    <tr>
+                <td colspan="45">
+            Displaying <strong>14</strong> issues at <strong>06/Jun/26 12:43 AM</strong>.
+        </td>
+    </tr>
+</table>
+
+
+
+
+                                        <table id="issuetable" class="aui " border="1" cellpadding="3" cellspacing="1" width="100%">
+                        <thead>
+        <tr class="rowHeader">
+            
+                                                            <th class="colHeaderLink headerrow-statuscategorychangedate" data-id="statuscategorychangedate">
+                                                        Status Category Changed
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-issuetype" data-id="issuetype">
+                                                        Issue Type
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-issuekey" data-id="issuekey">
+                                                        Key
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-timespent" data-id="timespent">
+                                                        Time Spent
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-timeoriginalestimate" data-id="timeoriginalestimate">
+                                                        Original estimate
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-project" data-id="project">
+                                                        Project
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-description" data-id="description">
+                                                        Description
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-fixVersions" data-id="fixVersions">
+                                                        Fix versions
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-aggregatetimespent" data-id="aggregatetimespent">
+                                                        Σ Time Spent
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-statusCategory" data-id="statusCategory">
+                                                        Status Category
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-parent" data-id="parent">
+                                                        Parent
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-resolution" data-id="resolution">
+                                                        Resolution
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10015" data-id="customfield_10015">
+                                                        Start date
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-security" data-id="security">
+                                                        Security Level
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-aggregatetimeestimate" data-id="aggregatetimeestimate">
+                                                        Σ Remaining Estimate
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-resolutiondate" data-id="resolutiondate">
+                                                        Resolved
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-workratio" data-id="workratio">
+                                                        Work Ratio
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-summary" data-id="summary">
+                                                        Summary
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-lastViewed" data-id="lastViewed">
+                                                        Last Viewed
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-watches" data-id="watches">
+                                                        Watchers
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-thumbnail" data-id="thumbnail">
+                                                        Images
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-creator" data-id="creator">
+                                                        Creator
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-subtasks" data-id="subtasks">
+                                                        Sub-tasks
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-created" data-id="created">
+                                                        Created
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10020" data-id="customfield_10020">
+                                                        Sprint
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10021" data-id="customfield_10021">
+                                                        Flagged
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-reporter" data-id="reporter">
+                                                        Reporter
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-aggregateprogress" data-id="aggregateprogress">
+                                                        Σ Progress
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10000" data-id="customfield_10000">
+                                                        Development
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-priority" data-id="priority">
+                                                        Priority
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10001" data-id="customfield_10001">
+                                                        Team
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-labels" data-id="labels">
+                                                        Labels
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10016" data-id="customfield_10016">
+                                                        Story point estimate
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10017" data-id="customfield_10017">
+                                                        Issue color
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-environment" data-id="environment">
+                                                        Environment
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10019" data-id="customfield_10019">
+                                                        Rank
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-aggregatetimeoriginalestimate" data-id="aggregatetimeoriginalestimate">
+                                                        Σ Original Estimate
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-timeestimate" data-id="timeestimate">
+                                                        Remaining Estimate
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-duedate" data-id="duedate">
+                                                        Due date
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-progress" data-id="progress">
+                                                        Progress
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-issuelinks" data-id="issuelinks">
+                                                        Linked Issues
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-votes" data-id="votes">
+                                                        Votes
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-assignee" data-id="assignee">
+                                                        Assignee
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-updated" data-id="updated">
+                                                        Updated
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-status" data-id="status">
+                                                        Status
+                                                    </th>
+                                                                    </tr>
+    </thead>
+    <tbody>
+                    
+
+                <tr id="issuerow10018" rel="10018" data-issuekey="EP-15" class="issuerow">
+                                            <td class="statuscategorychangedate"> 05/Jun/26 11:56 PM </td>
+                                            <td class="issuetype">    Story
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="EP-15" href="https://erickjcintron.atlassian.net/browse/EP-15">EP-15</a>
+</td>
+                                            <td class="timespent"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="project">    erickjcintron-portfolio
+</td>
+                                            <td class="description">            As a Maintainer / Reviewer,  <br/>
+I want the codebase to have a robust README.md and zero console errors,  <br/>
+So that the project can be confidently reviewed, deployed, and scaled.<br/>
+<br/>
+Acceptance Criteria:<br/>
+<br/>
+* Given the developer console is open during runtime or user interactions, then zero errors or unhandled warnings should be logged.<br/>
+* Given the repository root, then a robust README.md must detail setup instructions, project scope, and features.
+    </td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">To Do</span>
+</td>
+                                            <td class="parent">            Epic 4: Technical & UX Excellence
+    </td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="security"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="summary"><p>
+                US 4.2: Code Quality and Documentation
+    </p>
+</td>
+                                            <td class="lastViewed"> 06/Jun/26 12:37 AM </td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="creator">            Erick J Cintron
+    </td>
+                                            <td class="subtasks"></td>
+                                            <td class="created"> 05/Jun/26 11:56 PM </td>
+                                            <td class="customfield_10020">EP Sprint 1</td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="reporter">            Erick J Cintron
+    </td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="customfield_10000"></td>
+                                            <td class="priority">           Low
+    </td>
+                                            <td class="customfield_10001">    None
+</td>
+                                            <td class="labels"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="environment"></td>
+                                            <td class="customfield_10019">      0|i0003r:
+  </td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="progress"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="votes">0</td>
+                                            <td class="assignee">    <em>Unassigned</em>
+</td>
+                                            <td class="updated"> 06/Jun/26 12:03 AM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;To Do&lt;/span&gt;">To Do</span>    </td>
+                    </tr>
+
+
+                <tr id="issuerow10017" rel="10017" data-issuekey="EP-14" class="issuerow">
+                                            <td class="statuscategorychangedate"> 05/Jun/26 11:55 PM </td>
+                                            <td class="issuetype">    Story
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="EP-14" href="https://erickjcintron.atlassian.net/browse/EP-14">EP-14</a>
+</td>
+                                            <td class="timespent"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="project">    erickjcintron-portfolio
+</td>
+                                            <td class="description">            As a Mobile Trivia Player,  <br/>
+I want the answer options to stack vertically on small mobile screens (like an iPhone 5),  <br/>
+So that I can easily tap the buttons without zooming or horizontal scrolling.<br/>
+<br/>
+Acceptance Criteria:<br/>
+<br/>
+* Given a viewport size of mobile dimensions (e.g., width &lt;= 576px), then answer options must smoothly collapse into a single-column layout.<br/>
+* Given any device, the layout must completely fit the screen without overflowing or forcing horizontal scrolling.
+    </td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">To Do</span>
+</td>
+                                            <td class="parent">            Epic 4: Technical & UX Excellence
+    </td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="security"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="summary"><p>
+                US 4.1: Responsive Layout &amp; Mobile-First UX
+    </p>
+</td>
+                                            <td class="lastViewed"> 06/Jun/26 12:01 AM </td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="creator">            Erick J Cintron
+    </td>
+                                            <td class="subtasks"></td>
+                                            <td class="created"> 05/Jun/26 11:55 PM </td>
+                                            <td class="customfield_10020">EP Sprint 1</td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="reporter">            Erick J Cintron
+    </td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="customfield_10000"></td>
+                                            <td class="priority">           Low
+    </td>
+                                            <td class="customfield_10001">    None
+</td>
+                                            <td class="labels"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="environment"></td>
+                                            <td class="customfield_10019">      0|i0003j:
+  </td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="progress"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="votes">0</td>
+                                            <td class="assignee">    <em>Unassigned</em>
+</td>
+                                            <td class="updated"> 06/Jun/26 12:03 AM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;To Do&lt;/span&gt;">To Do</span>    </td>
+                    </tr>
+
+
+                <tr id="issuerow10016" rel="10016" data-issuekey="EP-13" class="issuerow">
+                                            <td class="statuscategorychangedate"> 05/Jun/26 11:53 PM </td>
+                                            <td class="issuetype">    Story
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="EP-13" href="https://erickjcintron.atlassian.net/browse/EP-13">EP-13</a>
+</td>
+                                            <td class="timespent"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="project">    erickjcintron-portfolio
+</td>
+                                            <td class="description">            As a Returning Trivia Player,  <br/>
+I want the app to remember my progress across browser sessions,  <br/>
+So that I never encounter repeat questions until I explicitly choose to reset my data.<br/>
+<br/>
+Acceptance Criteria:<br/>
+<br/>
+* Given a user completes questions or sessions, then answered question IDs must be tracked using a backend persistence layer or local storage.<br/>
+* Given the user reloads the app later, then those previously answered questions must not reappear in future sessions.<br/>
+* Given the user wants to start completely over, then a &quot;Clear Progress&quot; mechanism must be available to erase historical data and refresh the question pool.
+    </td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">To Do</span>
+</td>
+                                            <td class="parent">            Epic 3: Game Loop, Scoring, & Persistence
+    </td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="security"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="summary"><p>
+                US 3.3: Cross-Session Persistence
+    </p>
+</td>
+                                            <td class="lastViewed"> 05/Jun/26 11:54 PM </td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="creator">            Erick J Cintron
+    </td>
+                                            <td class="subtasks"></td>
+                                            <td class="created"> 05/Jun/26 11:53 PM </td>
+                                            <td class="customfield_10020">EP Sprint 1</td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="reporter">            Erick J Cintron
+    </td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="customfield_10000"></td>
+                                            <td class="priority">           Low
+    </td>
+                                            <td class="customfield_10001">    None
+</td>
+                                            <td class="labels"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="environment"></td>
+                                            <td class="customfield_10019">      0|i0003b:
+  </td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="progress"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="votes">0</td>
+                                            <td class="assignee">    <em>Unassigned</em>
+</td>
+                                            <td class="updated"> 06/Jun/26 12:03 AM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;To Do&lt;/span&gt;">To Do</span>    </td>
+                    </tr>
+
+
+                <tr id="issuerow10015" rel="10015" data-issuekey="EP-12" class="issuerow">
+                                            <td class="statuscategorychangedate"> 05/Jun/26 11:53 PM </td>
+                                            <td class="issuetype">    Story
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="EP-12" href="https://erickjcintron.atlassian.net/browse/EP-12">EP-12</a>
+</td>
+                                            <td class="timespent"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="project">    erickjcintron-portfolio
+</td>
+                                            <td class="description">            As a Trivia Player,  <br/>
+I want to see a dedicated completion screen with my total score when the session ends,  <br/>
+So that I can evaluate my performance and celebrate finishing the quiz.<br/>
+<br/>
+Acceptance Criteria:<br/>
+<br/>
+* Given the user answers the final question of the set and clicks &quot;Next/Finish&quot;, then a clear final screen must replace the question card.<br/>
+* Given the final screen is active, then it must display a prominent message stating the trivia session is complete alongside the user&#39;s final score.
+    </td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">To Do</span>
+</td>
+                                            <td class="parent">            Epic 3: Game Loop, Scoring, & Persistence
+    </td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="security"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="summary"><p>
+                US 3.2: Session Completion &amp; Scoring
+    </p>
+</td>
+                                            <td class="lastViewed"> 05/Jun/26 11:53 PM </td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="creator">            Erick J Cintron
+    </td>
+                                            <td class="subtasks"></td>
+                                            <td class="created"> 05/Jun/26 11:53 PM </td>
+                                            <td class="customfield_10020">EP Sprint 1</td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="reporter">            Erick J Cintron
+    </td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="customfield_10000"></td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="customfield_10001">    None
+</td>
+                                            <td class="labels"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="environment"></td>
+                                            <td class="customfield_10019">      0|i00033:
+  </td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="progress"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="votes">0</td>
+                                            <td class="assignee">    <em>Unassigned</em>
+</td>
+                                            <td class="updated"> 05/Jun/26 11:53 PM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;To Do&lt;/span&gt;">To Do</span>    </td>
+                    </tr>
+
+
+                <tr id="issuerow10014" rel="10014" data-issuekey="EP-11" class="issuerow">
+                                            <td class="statuscategorychangedate"> 05/Jun/26 11:51 PM </td>
+                                            <td class="issuetype">    Story
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="EP-11" href="https://erickjcintron.atlassian.net/browse/EP-11">EP-11</a>
+</td>
+                                            <td class="timespent"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="project">    erickjcintron-portfolio
+</td>
+                                            <td class="description">            As a Trivia Player,  <br/>
+I want to see an immediate right/wrong message after submitting an answer,  <br/>
+So that I know if my choice was correct before moving forward.<br/>
+<br/>
+Acceptance Criteria:<br/>
+<br/>
+* Given an answer is selected, then the application must evaluate it against the correct answer key.<br/>
+* Given the evaluation is complete, then a clear UI message must immediately inform the user whether they were &quot;Right&quot; or &quot;Wrong&quot;.
+    </td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">To Do</span>
+</td>
+                                            <td class="parent">            Epic 3: Game Loop, Scoring, & Persistence
+    </td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="security"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="summary"><p>
+                US 3.1: Instant Answer Feedback
+    </p>
+</td>
+                                            <td class="lastViewed"> 05/Jun/26 11:53 PM </td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="creator">            Erick J Cintron
+    </td>
+                                            <td class="subtasks"></td>
+                                            <td class="created"> 05/Jun/26 11:51 PM </td>
+                                            <td class="customfield_10020">EP Sprint 1</td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="reporter">            Erick J Cintron
+    </td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="customfield_10000"></td>
+                                            <td class="priority">           High
+    </td>
+                                            <td class="customfield_10001">    None
+</td>
+                                            <td class="labels"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="environment"></td>
+                                            <td class="customfield_10019">      0|i0002v:
+  </td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="progress"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="votes">0</td>
+                                            <td class="assignee">    <em>Unassigned</em>
+</td>
+                                            <td class="updated"> 06/Jun/26 12:03 AM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;To Do&lt;/span&gt;">To Do</span>    </td>
+                    </tr>
+
+
+                <tr id="issuerow10013" rel="10013" data-issuekey="EP-10" class="issuerow">
+                                            <td class="statuscategorychangedate"> 05/Jun/26 11:40 PM </td>
+                                            <td class="issuetype">    Story
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="EP-10" href="https://erickjcintron.atlassian.net/browse/EP-10">EP-10</a>
+</td>
+                                            <td class="timespent"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="project">    erickjcintron-portfolio
+</td>
+                                            <td class="description">            As a Trivia Player,  <br/>
+I want to sort and filter trivia questions by their subject matter,  <br/>
+So that I can test my knowledge on specific topics of my choosing.<br/>
+<br/>
+Acceptance Criteria:<br/>
+<br/>
+* Given the API data is fetched, then the app must parse the payload to extract all unique available subjects.<br/>
+* Given a subject selector (dropdown or filter tabs), then the user must be able to choose a specific subject.<br/>
+* Given a subject filter is applied, then the quiz must dynamically adjust to span only the questions matching that selected subject, updating the total question count tracker accordingly.
+    </td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">To Do</span>
+</td>
+                                            <td class="parent">            Epic 2: Question Delivery & API Integration
+    </td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="security"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="summary"><p>
+                US 2.2: Subject Categorization and Filtering
+    </p>
+</td>
+                                            <td class="lastViewed"> 05/Jun/26 11:46 PM </td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="creator">            Erick J Cintron
+    </td>
+                                            <td class="subtasks"></td>
+                                            <td class="created"> 05/Jun/26 11:40 PM </td>
+                                            <td class="customfield_10020">EP Sprint 1</td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="reporter">            Erick J Cintron
+    </td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="customfield_10000"></td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="customfield_10001">    None
+</td>
+                                            <td class="labels"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="environment"></td>
+                                            <td class="customfield_10019">      0|i0002n:
+  </td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="progress"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="votes">0</td>
+                                            <td class="assignee">    <em>Unassigned</em>
+</td>
+                                            <td class="updated"> 05/Jun/26 11:46 PM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;To Do&lt;/span&gt;">To Do</span>    </td>
+                    </tr>
+
+
+                <tr id="issuerow10012" rel="10012" data-issuekey="EP-9" class="issuerow">
+                                            <td class="statuscategorychangedate"> 05/Jun/26 11:37 PM </td>
+                                            <td class="issuetype">    Story
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="EP-9" href="https://erickjcintron.atlassian.net/browse/EP-9">EP-9</a>
+</td>
+                                            <td class="timespent"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="project">    erickjcintron-portfolio
+</td>
+                                            <td class="description">            As a Trivia Player,  <br/>
+I want the application to seamlessly fetch and display questions from the remote Chingu API on page load,  <br/>
+So that I can start playing immediately without manual setup.<br/>
+<br/>
+Acceptance Criteria:<br/>
+<br/>
+* Given the application loads, then it must make a static fetch request to [https://johnmeade-webdev.github.io/chingu_quiz_api/trial.json|https://johnmeade-webdev.github.io/chingu_quiz_api/trial.json]<br/>
+* Given a successful API response, then the first question must render automatically on a clean card format.<br/>
+* Given the API data structures, then the app must elegantly handle both Multiple Choice and True/False question types.
+    </td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">To Do</span>
+</td>
+                                            <td class="parent">            Epic 2: Question Delivery & API Integration
+    </td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="security"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="summary"><p>
+                US 2.1: Dynamic Trivia API Fetching
+    </p>
+</td>
+                                            <td class="lastViewed"> 05/Jun/26 11:49 PM </td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="creator">            Erick J Cintron
+    </td>
+                                            <td class="subtasks"></td>
+                                            <td class="created"> 05/Jun/26 11:37 PM </td>
+                                            <td class="customfield_10020">EP Sprint 1</td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="reporter">            Erick J Cintron
+    </td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="customfield_10000"></td>
+                                            <td class="priority">           Highest
+    </td>
+                                            <td class="customfield_10001">    None
+</td>
+                                            <td class="labels"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="environment"></td>
+                                            <td class="customfield_10019">      0|i0002f:
+  </td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="progress"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="votes">0</td>
+                                            <td class="assignee">    <em>Unassigned</em>
+</td>
+                                            <td class="updated"> 06/Jun/26 12:02 AM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;To Do&lt;/span&gt;">To Do</span>    </td>
+                    </tr>
+
+
+                <tr id="issuerow10011" rel="10011" data-issuekey="EP-8" class="issuerow">
+                                            <td class="statuscategorychangedate"> 05/Jun/26 11:33 PM </td>
+                                            <td class="issuetype">    Story
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="EP-8" href="https://erickjcintron.atlassian.net/browse/EP-8">EP-8</a>
+</td>
+                                            <td class="timespent"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="project">    erickjcintron-portfolio
+</td>
+                                            <td class="description">            As a Trivia Player,  <br/>
+I want a clear way to move to the next question only after I have submitted an answer,  <br/>
+So that I don&#39;t accidentally skip questions or advance without participating.<br/>
+<br/>
+Acceptance Criteria:<br/>
+<br/>
+* Given a new question has just loaded, then the &quot;Next Question&quot; button must be either completely hidden or disabled (not clickable).<br/>
+* Given the user has selected and submitted an answer, then the &quot;Next Question&quot; button must become visible and active.<br/>
+* Given the user clicks the active &quot;Next Question&quot; button, then the next question card must load without reloading the entire browser page.
+    </td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">To Do</span>
+</td>
+                                            <td class="parent">            Epic 1: Quiz Framework & Navigation
+    </td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="security"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="summary"><p>
+                US 1.3: Question Advancement
+    </p>
+</td>
+                                            <td class="lastViewed"> 05/Jun/26 11:49 PM </td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="creator">            Erick J Cintron
+    </td>
+                                            <td class="subtasks"></td>
+                                            <td class="created"> 05/Jun/26 11:33 PM </td>
+                                            <td class="customfield_10020">EP Sprint 1</td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="reporter">            Erick J Cintron
+    </td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="customfield_10000"></td>
+                                            <td class="priority">           High
+    </td>
+                                            <td class="customfield_10001">    None
+</td>
+                                            <td class="labels"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="environment"></td>
+                                            <td class="customfield_10019">      0|i00027:
+  </td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="progress"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="votes">0</td>
+                                            <td class="assignee">    <em>Unassigned</em>
+</td>
+                                            <td class="updated"> 06/Jun/26 12:03 AM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;To Do&lt;/span&gt;">To Do</span>    </td>
+                    </tr>
+
+
+                <tr id="issuerow10010" rel="10010" data-issuekey="EP-7" class="issuerow">
+                                            <td class="statuscategorychangedate"> 05/Jun/26 11:32 PM </td>
+                                            <td class="issuetype">    Story
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="EP-7" href="https://erickjcintron.atlassian.net/browse/EP-7">EP-7</a>
+</td>
+                                            <td class="timespent"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="project">    erickjcintron-portfolio
+</td>
+                                            <td class="description">            As a Trivia Player,  <br/>
+I want to see my current question number relative to the total number of questions,  <br/>
+So that I know exactly how far along I am in the trivia session.<br/>
+<br/>
+Acceptance Criteria:<br/>
+<br/>
+* Given a trivia session is active, then an indicator must display the current status in a format exactly like &#39;Question X / Y&#39; (e.g., &#39;Question 1 / 10&#39;).<br/>
+* Given the user advances to the next question, then the current question number &#39;X&#39; must increment by 1.
+    </td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">To Do</span>
+</td>
+                                            <td class="parent">            Epic 1: Quiz Framework & Navigation
+    </td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="security"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="summary"><p>
+                US 1.2: Quiz Progress Tracking
+    </p>
+</td>
+                                            <td class="lastViewed"> 05/Jun/26 11:49 PM </td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="creator">            Erick J Cintron
+    </td>
+                                            <td class="subtasks"></td>
+                                            <td class="created"> 05/Jun/26 11:32 PM </td>
+                                            <td class="customfield_10020">EP Sprint 1</td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="reporter">            Erick J Cintron
+    </td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="customfield_10000"></td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="customfield_10001">    None
+</td>
+                                            <td class="labels"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="environment"></td>
+                                            <td class="customfield_10019">      0|i0001z:
+  </td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="progress"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="votes">0</td>
+                                            <td class="assignee">    <em>Unassigned</em>
+</td>
+                                            <td class="updated"> 05/Jun/26 11:49 PM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;To Do&lt;/span&gt;">To Do</span>    </td>
+                    </tr>
+
+
+                <tr id="issuerow10009" rel="10009" data-issuekey="EP-6" class="issuerow">
+                                            <td class="statuscategorychangedate"> 05/Jun/26 11:17 PM </td>
+                                            <td class="issuetype">    Story
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="EP-6" href="https://erickjcintron.atlassian.net/browse/EP-6">EP-6</a>
+</td>
+                                            <td class="timespent"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="project">    erickjcintron-portfolio
+</td>
+                                            <td class="description">            As a Trivia Player,<br/>
+I want a clean, modern webpage header with the app name and navigation tabs,<br/>
+So that I can easily identify the app and navigate through its sections.<br/>
+<br/>
+Acceptance Criteria:<br/>
+<br/>
+* Given the user loads the app, then a prominent header must display the application name (&quot;Chingu Trivia&quot;).<br/>
+* Given the header layout, then it must include navigation tabs if required for future features.<br/>
+* Given different screen sizes, then the header must be responsive and not cause horizontal viewport scrolling.
+    </td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">To Do</span>
+</td>
+                                            <td class="parent">            Epic 1: Quiz Framework & Navigation
+    </td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="security"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="summary"><p>
+                US 1.1: Core App Layout &amp; Header
+    </p>
+</td>
+                                            <td class="lastViewed"> 05/Jun/26 11:49 PM </td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="creator">            Erick J Cintron
+    </td>
+                                            <td class="subtasks"></td>
+                                            <td class="created"> 05/Jun/26 11:17 PM </td>
+                                            <td class="customfield_10020">EP Sprint 1</td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="reporter">            Erick J Cintron
+    </td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="customfield_10000"></td>
+                                            <td class="priority">           Highest
+    </td>
+                                            <td class="customfield_10001">    None
+</td>
+                                            <td class="labels"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="environment"></td>
+                                            <td class="customfield_10019">      0|i0001r:
+  </td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="progress"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="votes">0</td>
+                                            <td class="assignee">    <em>Unassigned</em>
+</td>
+                                            <td class="updated"> 06/Jun/26 12:02 AM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;To Do&lt;/span&gt;">To Do</span>    </td>
+                    </tr>
+
+
+                <tr id="issuerow10007" rel="10007" data-issuekey="EP-4" class="issuerow">
+                                            <td class="statuscategorychangedate"> 05/Jun/26 11:04 PM </td>
+                                            <td class="issuetype">    Epic
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="EP-4" href="https://erickjcintron.atlassian.net/browse/EP-4">EP-4</a>
+</td>
+                                            <td class="timespent"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="project">    erickjcintron-portfolio
+</td>
+                                            <td class="description"></td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">To Do</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="security"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="summary"><p>
+                Epic 4: Technical &amp; UX Excellence
+    </p>
+</td>
+                                            <td class="lastViewed"> 06/Jun/26 12:09 AM </td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="creator">            Erick J Cintron
+    </td>
+                                            <td class="subtasks"></td>
+                                            <td class="created"> 05/Jun/26 11:04 PM </td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="reporter">            Erick J Cintron
+    </td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="customfield_10000"></td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="customfield_10001">    None
+</td>
+                                            <td class="labels"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10017">      dark_orange
+  </td>
+                                            <td class="environment"></td>
+                                            <td class="customfield_10019">      0|i0001j:
+  </td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="progress"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="votes">0</td>
+                                            <td class="assignee">    <em>Unassigned</em>
+</td>
+                                            <td class="updated"> 05/Jun/26 11:04 PM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;To Do&lt;/span&gt;">To Do</span>    </td>
+                    </tr>
+
+
+                <tr id="issuerow10006" rel="10006" data-issuekey="EP-3" class="issuerow">
+                                            <td class="statuscategorychangedate"> 05/Jun/26 11:04 PM </td>
+                                            <td class="issuetype">    Epic
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="EP-3" href="https://erickjcintron.atlassian.net/browse/EP-3">EP-3</a>
+</td>
+                                            <td class="timespent"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="project">    erickjcintron-portfolio
+</td>
+                                            <td class="description"></td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">To Do</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="security"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="summary"><p>
+                Epic 3: Game Loop, Scoring, &amp; Persistence
+    </p>
+</td>
+                                            <td class="lastViewed"> 05/Jun/26 11:53 PM </td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="creator">            Erick J Cintron
+    </td>
+                                            <td class="subtasks"></td>
+                                            <td class="created"> 05/Jun/26 11:04 PM </td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="reporter">            Erick J Cintron
+    </td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="customfield_10000"></td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="customfield_10001">    None
+</td>
+                                            <td class="labels"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10017">      dark_green
+  </td>
+                                            <td class="environment"></td>
+                                            <td class="customfield_10019">      0|i0001b:
+  </td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="progress"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="votes">0</td>
+                                            <td class="assignee">    <em>Unassigned</em>
+</td>
+                                            <td class="updated"> 05/Jun/26 11:53 PM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;To Do&lt;/span&gt;">To Do</span>    </td>
+                    </tr>
+
+
+                <tr id="issuerow10005" rel="10005" data-issuekey="EP-2" class="issuerow">
+                                            <td class="statuscategorychangedate"> 05/Jun/26 11:04 PM </td>
+                                            <td class="issuetype">    Epic
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="EP-2" href="https://erickjcintron.atlassian.net/browse/EP-2">EP-2</a>
+</td>
+                                            <td class="timespent"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="project">    erickjcintron-portfolio
+</td>
+                                            <td class="description"></td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">To Do</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="security"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="summary"><p>
+                Epic 2: Question Delivery &amp; API Integration
+    </p>
+</td>
+                                            <td class="lastViewed"> 05/Jun/26 11:40 PM </td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="creator">            Erick J Cintron
+    </td>
+                                            <td class="subtasks"></td>
+                                            <td class="created"> 05/Jun/26 11:04 PM </td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="reporter">            Erick J Cintron
+    </td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="customfield_10000"></td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="customfield_10001">    None
+</td>
+                                            <td class="labels"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10017">      dark_blue
+  </td>
+                                            <td class="environment"></td>
+                                            <td class="customfield_10019">      0|i00013:
+  </td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="progress"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="votes">0</td>
+                                            <td class="assignee">    <em>Unassigned</em>
+</td>
+                                            <td class="updated"> 05/Jun/26 11:04 PM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;To Do&lt;/span&gt;">To Do</span>    </td>
+                    </tr>
+
+
+                <tr id="issuerow10004" rel="10004" data-issuekey="EP-1" class="issuerow">
+                                            <td class="statuscategorychangedate"> 05/Jun/26 11:04 PM </td>
+                                            <td class="issuetype">    Epic
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="EP-1" href="https://erickjcintron.atlassian.net/browse/EP-1">EP-1</a>
+</td>
+                                            <td class="timespent"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="project">    erickjcintron-portfolio
+</td>
+                                            <td class="description"></td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">To Do</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="security"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="summary"><p>
+                Epic 1: Quiz Framework &amp; Navigation
+    </p>
+</td>
+                                            <td class="lastViewed"> 06/Jun/26 12:37 AM </td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="creator">            Erick J Cintron
+    </td>
+                                            <td class="subtasks"></td>
+                                            <td class="created"> 05/Jun/26 11:04 PM </td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="reporter">            Erick J Cintron
+    </td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="customfield_10000"></td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="customfield_10001">    None
+</td>
+                                            <td class="labels"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10017">      yellow
+  </td>
+                                            <td class="environment"></td>
+                                            <td class="customfield_10019">      0|i0000v:
+  </td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="progress"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="votes">0</td>
+                                            <td class="assignee">    <em>Unassigned</em>
+</td>
+                                            <td class="updated"> 05/Jun/26 11:31 PM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;To Do&lt;/span&gt;">To Do</span>    </td>
+                    </tr>
+        </tbody>
+    </table>
+    <div class="end-of-stable-message"></div>
+            <table border="1" >
+<tr>
+    <td bgcolor="#dddddd" colspan="45"><font size="1">
+        Generated at Sat Jun 06 04:43:28 UTC 2026 by Erick J Cintron using Jira 1001.0.0-SNAPSHOT#100291-rev:1410f42f0a83dc4bd0e1e24a6e70366226f2841f.
+    </font></td>
+</tr>
+</table>
+
+</body>
+</html>
