@@ -1,5 +1,3 @@
-# chingu-trivia-product-owner-backlog
-
 # Chingu Trivia - Product Owner Project Backlog
 
 ## Epic 1: Quiz Framework & Navigation
