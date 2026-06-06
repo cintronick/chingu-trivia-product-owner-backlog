@@ -134,3 +134,8 @@ So that the project can be confidently reviewed, deployed, and scaled.
 **Acceptance Criteria:**
 - Given the developer console is open during runtime or user interactions, then zero errors or unhandled warnings should be logged.
 - Given the repository root, then a robust README.md must detail setup instructions, project scope, and features.
+
+## Jira Backlog Board Screenshot
+
+![Jira Backlog Board](jira-backlog-screenshot.png)
+![Jira Backlog Board](jira-backlog-hmtl-report-all-fields.html)
