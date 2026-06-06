@@ -138,4 +138,3 @@ So that the project can be confidently reviewed, deployed, and scaled.
 ## Jira Backlog Board Screenshot
 
 ![Jira Backlog Board](jira-backlog-screenshot.png)
-![Jira Backlog Board](jira-backlog-hmtl-report-all-fields.html)
